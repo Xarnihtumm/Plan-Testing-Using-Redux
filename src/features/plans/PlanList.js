@@ -79,16 +79,24 @@ import {
   fetchPlans,
 } from "./planSlice";
 import TableData from "./TableData";
+import { fetchSpeeds, getSpeedsStatus} from "../speed/speedSlice";
 function PlanList() {
   const dispatch = useDispatch();
   const plans = useSelector(selectAllPlans);
   const status = useSelector(getPlansStatus);
   const error = useSelector(getPlansError);
+  //const speedStatus = useSelector(getSpeedsStatus);
 
   useEffect(() => {
     if (status === "idle") {
       dispatch(fetchPlans());
+      dispatch(fetchSpeeds())
+      
     }
+    // if (speedStatus === "idle") {
+      
+    //   dispatch(fetchSpeeds())
+    // }
   }, [status, dispatch]);
 
   let content;
@@ -135,7 +143,7 @@ function PlanList() {
         <div className="row">
           <div className="col-12 text-center">
             <h3>Here are all the plans</h3>
-            <Link to="/plan-form">
+            <Link to="/">
               <button>Create Plan</button>
             </Link>
           </div>

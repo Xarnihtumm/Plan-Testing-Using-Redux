@@ -33,7 +33,24 @@ export const updatePlans = createAsyncThunk(
     console.log(response.data);
     return response.data;
   }
-);
+); //Coded by zar ni
+
+// export const updatePlans = createAsyncThunk(
+//   "plans/updatePlans",
+//   async (initialPlan, { getState }) => {
+//     console.log(getState().speeds)
+//     const { speeds } = getState().speeds; // Get the speeds from the state
+//     const updatedPlan = {
+//       ...initialPlan,
+//       speeds: speeds.map((speed) => speed.id), // Update speeds with only the speed ids
+//     };
+//     const response = await axios.post(UPDATE_PLANS, updatedPlan);
+//     console.log(response.data);
+//     return response.data;
+//   }
+// );code by chat GPT
+
+
 
 export const deletePlan = createAsyncThunk(
   "plans/deletePlan",
@@ -106,15 +123,26 @@ export const planSlice = createSlice({
         state.plans.push(action.payload);
       })
 
+      // .addCase(updatePlans.fulfilled, (state, action) => {
+      //   state.status='succeeded';
+      //   //state.plans = action.payload
+      //    const plan = action.payload;
+
+      //    const plans = state.plans.filter((p) => p.id !== plan.id);
+
+      //    state.plans = [plan, ...plans];
+      // }); coded by zar ni
+
       .addCase(updatePlans.fulfilled, (state, action) => {
-        // state.status='succeeded';
-        // state.plans = action.payload
-        const plan = action.payload;
-
-        const plans = state.plans.filter((p) => p.id !== plan.id);
-
-        state.plans = [plan, ...plans];
-      });
+        const updatedPlans = state.plans.map((plan) => {
+          if (plan.id === action.payload.id) {
+            return action.payload;
+          }
+          return plan;
+        });
+        state.plans = updatedPlans;
+      })
+      
   },
 });
 

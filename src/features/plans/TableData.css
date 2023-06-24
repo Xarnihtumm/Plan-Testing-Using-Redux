@@ -1,0 +1,74 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .speed-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    transition: background-color 0.3s;
+  }
+  
+  .speed-item.hovered {
+    background-color: #f5f5f5;
+  }
+  
+  .speed-value {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .speed-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  .btn-create-discount,
+  .btn-delete-speed {
+    font-size: 14px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-create-discount:hover,
+  .btn-delete-speed:hover {
+    background-color: #2980b9;
+  }
+  
+  .plan-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .btn-delete-plan,
+  .btn-edit-plan {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #e74c3c;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-delete-plan:hover,
+  .btn-edit-plan:hover {
+    background-color: #c0392b;
+  }
+  

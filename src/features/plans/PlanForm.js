@@ -30,6 +30,7 @@ const Form = () => {
          
          navigate('/')
         } catch (error) {
+          
          console.error('failed to save the post',error)
         }finally{
          setAddRequestStatus('idle')
